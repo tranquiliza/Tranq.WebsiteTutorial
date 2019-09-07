@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Tranq.WebsiteTutorial.Services;
 
 namespace Tranq.WebsiteTutorial
 {
@@ -31,6 +32,8 @@ namespace Tranq.WebsiteTutorial
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton<IQuoteService, QuoteService>();
+            services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
