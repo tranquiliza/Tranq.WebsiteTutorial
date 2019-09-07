@@ -58,19 +58,20 @@ namespace Tranq.WebsiteTutorial.Controllers
         }
 
         // GET: Quotes/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var quote = _quoteService.GetQuote(id);
+            return View(quote.TranslateToEditModel());
         }
 
         // POST: Quotes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Guid id, EditQuoteModel editedQuote)
         {
             try
             {
-                // TODO: Add update logic here
+                _quoteService.EditQuote(id, editedQuote.QuoteContent);
 
                 return RedirectToAction(nameof(Index));
             }

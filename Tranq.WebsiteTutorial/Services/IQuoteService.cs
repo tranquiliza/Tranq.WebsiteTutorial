@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Tranq.WebsiteTutorial.Domain;
 
 namespace Tranq.WebsiteTutorial.Services
@@ -7,5 +8,7 @@ namespace Tranq.WebsiteTutorial.Services
     {
         IEnumerable<Quote> GetQuotes();
         void CreateQuote(string personName, string quoteContent);
+        Quote GetQuote(Guid id);
+        void EditQuote(Guid id, string quoteContent);
     }
 }

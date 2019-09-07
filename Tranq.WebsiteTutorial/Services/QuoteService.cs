@@ -22,6 +22,17 @@ namespace Tranq.WebsiteTutorial.Services
             _quotes.Add(new Quote(personName, quoteContent, _dateTimeProvider.UtcNow));
         }
 
+        public void EditQuote(Guid id, string quoteContent)
+        {
+            var quoteToEdit = _quotes.First(quote => quote.Id == id);
+            quoteToEdit.UpdateQuoteContent(quoteContent);
+        }
+
+        public Quote GetQuote(Guid id)
+        {
+            return _quotes.First(quote => quote.Id == id);
+        }
+
         public IEnumerable<Quote> GetQuotes()
         {
             return _quotes;

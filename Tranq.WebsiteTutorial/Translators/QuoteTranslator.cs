@@ -13,8 +13,17 @@ namespace Tranq.WebsiteTutorial.Translators
         {
             return new QuoteViewModel
             {
+                Id = quote.Id,
                 DateOfQuote = quote.DateOfQuote,
                 PersonName = quote.PersonName,
+                QuoteContent = quote.QuoteContent
+            };
+        }
+
+        public static EditQuoteModel TranslateToEditModel(this Quote quote)
+        {
+            return new EditQuoteModel
+            {
                 QuoteContent = quote.QuoteContent
             };
         }

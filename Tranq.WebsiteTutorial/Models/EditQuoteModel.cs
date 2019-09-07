@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 
 namespace Tranq.WebsiteTutorial.Models
 {
-    public class QuoteViewModel
+    public class EditQuoteModel
     {
-        public Guid Id { get; set; }
-        public string PersonName { get; set; }
         public string QuoteContent { get; set; }
-        public DateTime DateOfQuote { get; set; }
     }
 }

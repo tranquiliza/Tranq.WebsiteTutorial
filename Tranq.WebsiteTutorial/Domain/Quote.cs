@@ -22,5 +22,12 @@ namespace Tranq.WebsiteTutorial.Domain
             QuoteContent = quoteContent;
             DateOfQuote = dateOfQuote;
         }
+
+        internal void UpdateQuoteContent(string quoteContent)
+        {
+            if (string.IsNullOrWhiteSpace(quoteContent)) throw new ArgumentException("Quote cannot be empty!", nameof(quoteContent));
+
+            QuoteContent = quoteContent;
+        }
     }
 }
